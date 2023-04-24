@@ -26,45 +26,6 @@ class AuthController extends Controller
         return view('admin.dashboard', compact('attendance'));
     }
 
-    public function register()
-    {
-        return view('admin.register');
-    }
-
-    public function registerStore(Request $request)
-    {
-
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'mobile' => 'required',
-            'password' => 'required',
-        ]);
-
-        try {
-            $user_pic = '';
-
-            $user = User::create([
-                'name' => $request->name,
-                'email' => $request->email,
-                'mobile' => $request->mobile,
-                'password' => Hash::make($request->password),
-                'image' => $user_pic,
-            ]);
-            if ($user) {
-                $user->assignRole('staff');
-                return redirect(url('/login'))->with('success', 'User registerd successfully');
-            } else {
-                return redirect()->back()->with('error', 'User not register successfully');
-            }
-        } catch (Exception $ex) {
-            $url = URL::current();
-            Error::create(['url' => $url, 'message' => $ex->getMessage()]);
-            return redirect()->back()->with('error', 'Server Error');
-        }
-    }
-
-
     public function index()
     {
         return view('admin.login');

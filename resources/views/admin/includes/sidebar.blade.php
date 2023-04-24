@@ -28,10 +28,11 @@
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bx-user-plus"></i>
-                        <span key="t-users">Users</span>
+                        <span key="t-users">Manager</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{route('admin.userRegister')}}" key="t-register">Register</a></li>
+                        <li><a href="{{route('admin.userRegister')}}" key="t-register">Create</a></li>
+                        <li><a href="{{route('admin.userRegister')}}" key="t-register">Manage</a></li>
                     </ul>
                 </li>
 

@@ -1,5 +1,5 @@
-@extends('admin.includes.master', ['breadcrumb_title' => isset($edituser)?'Update User':'User'])
-@section('title', isset($edituser)?'Update User':'User')
+@extends('admin.includes.master', ['breadcrumb_title' => isset($edituser)?'Update Manager':'Manager'])
+@section('title', isset($edituser)?'Update Manager':'Manager')
 @section('style-area')
 
 @endsection
@@ -8,7 +8,7 @@
     <div class="col-xl-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title mb-4">{{isset($edituser)?'Update User Form':'User Form'}}</h4>
+                <h4 class="card-title mb-4">{{isset($edituser)?'Update Manager Form':'Manager Form'}}</h4>
                 @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -22,59 +22,84 @@
                     method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="mb-3">
-                                <label for="formrow-name-input" class="form-label">Name</label>
+                                <label for="formrow-name-input" class="form-label">First_Name</label>
                                 <input type="text" class="form-control" id="formrow-name-input"
-                                    placeholder="Enter Your Name" name="name" value="{{$edituser->name ?? ''}}">
+                                    placeholder="Enter Your First Name" name="fname" value="{{$edituser->name ?? ''}}">
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="formrow-name-input" class="form-label">Last_Name</label>
+                                <input type="text" class="form-control" id="formrow-name-input"
+                                    placeholder="Enter Your Last Name" name="lname" value="{{$edituser->name ?? ''}}">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
                             <div class="mb-3">
                                 <label for="formrow-email-input" class="form-label">Email</label>
                                 <input type="email" class="form-control" id="formrow-email-input"
                                     placeholder="Enter Your Email" name="email" value="{{$edituser->email ?? ''}}">
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="formrow-mobile-input" class="form-label">Father Name</label>
+                                <input type="text" class="form-control" id="formrow-mobile-input"
+                                    placeholder="Enter Your Father Name" name="father_name" value="{{$edituser->mobile ?? ''}}">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
                             <div class="mb-3">
                                 <label for="formrow-mobile-input" class="form-label">Mobile</label>
                                 <input type="text" class="form-control" id="formrow-mobile-input"
                                     placeholder="Enter Your Mobile" name="mobile" value="{{$edituser->mobile ?? ''}}">
                             </div>
                         </div>
-                        <div class="col-md-6 {{isset($edituser)? 'd-none':''}}">
+                        <div class="col-md-4 {{isset($edituser)? 'd-none':''}}">
                             <div class="mb-3">
                                 <label for="formrow-password-input" class="form-label">Paasword</label>
                                 <input type="password" class="form-control" id="formrow-password-input"
                                     placeholder="Enter Your Password" name="password" value="">
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="mb-3">
-                                <label class="form-label">Role Select</label>
-                                <select class="form-control select2 roles" name="roles">
-                                    <option selected disabled hidden>--Select Role--</option>
-                                    <optgroup label="Roles">
-                                        @foreach ($roles as $role)
-                                        <option value="{{$role->id}}"
-                                            {{isset($edituser)?($edituser->roles[0]->id == $role->id ?'selected':''):''}}>
-                                            {{$role->name ?? ''}}
-                                        </option>
-                                        @endforeach
-                                    </optgroup>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
+
+                        <div class="col-md-4">
                             @if(isset($edituser))
                             <img src="{{asset($edituser->image)}}" alt="" height="50px" width="50px">
                             @endif
                             <div class="mb-3">
-                                <label for="formrow-pic-input" class="form-label">Image</label>
+                                <label for="formrow-pic-input" class="form-label">Qualification(document)</label>
                                 <input type="file" class="form-control" id="formrow-pic-input"
                                     placeholder="Enter Your Pic" name="image" value="">
                             </div>
+                        </div>
+                        <div class="col-md-4">
+                            @if(isset($edituser))
+                            <img src="{{asset($edituser->image)}}" alt="" height="50px" width="50px">
+                            @endif
+                            <div class="mb-3">
+                                <label for="formrow-pic-input" class="form-label">Aadhar(image)</label>
+                                <input type="file" class="form-control" id="formrow-pic-input"
+                                    placeholder="Enter Your Pic" name="image" value="">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            @if(isset($edituser))
+                            <img src="{{asset($edituser->image)}}" alt="" height="50px" width="50px">
+                            @endif
+                            <div class="mb-3">
+                                <label for="formrow-pic-input" class="form-label">Last Qualification(document)</label>
+                                <input type="file" class="form-control" id="formrow-pic-input"
+                                    placeholder="Enter Your Pic" name="image" value="">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-floating mb-3">
+                                <label for="floatingTextarea">Address</label>
+                                <textarea class="form-control" name="address" placeholder="Enter your address here" id="floatingTextarea"></textarea>
+                              </div>
                         </div>
                     </div>
 

@@ -19,11 +19,11 @@ class UserController extends Controller
     public function userRegister()
     {
         try {
-            if (Auth::user()->hasRole('admin')) {
+            if (Auth::user()->hasRole('admin'))
+            {
                 $users = User::all();
                 $roles = Role::all();
             } else {
-                // dd();
                 $users = User::where('created_id', Auth::user()->id)->get();
                 $roles = Role::all();
             }

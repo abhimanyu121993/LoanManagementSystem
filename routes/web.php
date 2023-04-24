@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\HasPermissionController;
 use App\Http\Controllers\admin\PermissionController;
 use App\Http\Controllers\admin\RoleController;
 use App\Http\Controllers\admin\user\UserController;
+use App\Http\Controllers\text;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,9 +22,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('admin\includes\master');
 });
-
-Route::get('register', [AuthController::class, 'register'])->name('register');
-Route::post('register-store', [AuthController::class, 'registerStore'])->name('registerStore');
 Route::get('login', [AuthController::class, 'index'])->name('login');
 Route::post('login-store', [AuthController::class, 'login'])->name('loginStore');
 
