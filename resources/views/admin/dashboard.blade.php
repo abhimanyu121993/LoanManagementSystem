@@ -1,4 +1,4 @@
-@extends('admin.includes.master', ['breadcrumb_title' => 'Dashboard'])
+@extends('admin.includes.master',['breadcrumb_title' => 'Dashboard'])
 @section('title', 'Dashboard')
 @section('style-area')
 

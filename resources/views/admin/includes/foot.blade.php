@@ -99,3 +99,23 @@
 
   <!-- Datatable init js -->
   <script src="{{asset('assets/js/pages/datatables.init.js')}}"></script>
+
+  <!-- loan_types Status Ajax -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+        $(document).on('change','.switch',function(){
+            var id = $(this).data('id');
+            var newurl = "{{url('admin/loan-type-status')}}"+'/'+id;
+            alert(newurl);
+            $.ajax({
+                method:"get",
+                url: newurl,
+                success: function (response) {
+                    alert(response);
+                }
+            });
+        });
+    });
+  </script>
