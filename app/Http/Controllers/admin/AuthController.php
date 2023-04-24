@@ -71,7 +71,7 @@ class AuthController extends Controller
 
             if ($date == '') {
                 $attendance = Attendance::create([
-                    'user_id' => Auth::user()->id,
+                    'user_id' => Auth::id(),
                     'clock_in' => now()->format('H:i:s'),
                     'date' => $request->date,
                 ]);

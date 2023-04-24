@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\AuthController;
 use App\Http\Controllers\admin\HasPermissionController;
+use App\Http\Controllers\admin\LoantypeController;
 use App\Http\Controllers\admin\PermissionController;
 use App\Http\Controllers\admin\RoleController;
 use App\Http\Controllers\admin\user\UserController;
@@ -57,3 +58,4 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
     Route::get('/change-password/{id}', [UserController::class, 'password'])->name('password');
     Route::post('/password-update/{id}', [UserController::class, 'passwordUpdate'])->name('passwordUpdate');
 });
+
