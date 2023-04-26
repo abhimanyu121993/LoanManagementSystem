@@ -9,15 +9,6 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title mb-4">{{isset($edituser)?'Update Manager Form':'Manager Form'}}</h4>
-                @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-                @endif
                 <form action="{{isset($edituser)? route('admin.userUpdate',$edituser->id):route('admin.userStore')}}"
                     method="post" enctype="multipart/form-data">
                     @csrf
@@ -26,86 +17,92 @@
                             <div class="mb-3">
                                 <label for="formrow-name-input" class="form-label">First_Name</label>
                                 <input type="text" class="form-control" id="formrow-name-input"
-                                    placeholder="Enter Your First Name" name="fname" value="{{$edituser->name ?? ''}}">
+                                    placeholder="Enter Your First Name" name="fname" value="{{$users->user_name[0] ?? ''}}">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="mb-3">
                                 <label for="formrow-name-input" class="form-label">Last_Name</label>
                                 <input type="text" class="form-control" id="formrow-name-input"
-                                    placeholder="Enter Your Last Name" name="lname" value="{{$edituser->name ?? ''}}">
+                                    placeholder="Enter Your Last Name" name="lname" value="{{$users->user_name[1] ?? ''}}">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="mb-3">
                                 <label for="formrow-email-input" class="form-label">Email</label>
                                 <input type="email" class="form-control" id="formrow-email-input"
-                                    placeholder="Enter Your Email" name="email" value="{{$edituser->email ?? ''}}">
+                                    placeholder="Enter Your Email" name="email" value="{{$users->managers->email ?? ''}}">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="mb-3">
                                 <label for="formrow-mobile-input" class="form-label">Father Name</label>
                                 <input type="text" class="form-control" id="formrow-mobile-input"
-                                    placeholder="Enter Your Father Name" name="father_name" value="{{$edituser->mobile ?? ''}}">
+                                    placeholder="Enter Your Father Name" name="father_name" value="{{$users->father_name ?? ''}}">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="mb-3">
                                 <label for="formrow-mobile-input" class="form-label">Mobile</label>
                                 <input type="text" class="form-control" id="formrow-mobile-input"
-                                    placeholder="Enter Your Mobile" name="mobile" value="{{$edituser->mobile ?? ''}}">
+                                    placeholder="Enter Your Mobile" name="mobile" value="{{$users->managers->mobile ?? ''}}">
                             </div>
                         </div>
-                        <div class="col-md-4 {{isset($edituser)? 'd-none':''}}">
+                        <div class="col-md-4">
                             <div class="mb-3">
                                 <label for="formrow-password-input" class="form-label">Paasword</label>
                                 <input type="password" class="form-control" id="formrow-password-input"
-                                    placeholder="Enter Your Password" name="password" value="">
+                                    placeholder="Enter Your Password" name="password" value="{{$users->managers->password ??''}}">
                             </div>
                         </div>
-
                         <div class="col-md-4">
                             @if(isset($edituser))
-                            <img src="{{asset($edituser->image)}}" alt="" height="50px" width="50px">
+                            <img src="{{asset($users->qualification_document ??'')}}" alt="" height="50px" width="50px">
                             @endif
                             <div class="mb-3">
                                 <label for="formrow-pic-input" class="form-label">Qualification(document)</label>
                                 <input type="file" class="form-control" id="formrow-pic-input"
-                                    placeholder="Enter Your Pic" name="image" value="">
+                                    placeholder="Enter Your Pic" name="qualification_document" value="{{$users->qualification_document ?? ''}}">
                             </div>
                         </div>
                         <div class="col-md-4">
                             @if(isset($edituser))
-                            <img src="{{asset($edituser->image)}}" alt="" height="50px" width="50px">
+                            <img src="{{asset($users->aadhar_image??'')}}" alt="" height="50px" width="50px">
                             @endif
                             <div class="mb-3">
                                 <label for="formrow-pic-input" class="form-label">Aadhar(image)</label>
                                 <input type="file" class="form-control" id="formrow-pic-input"
-                                    placeholder="Enter Your Pic" name="image" value="">
+                                    placeholder="Enter Your Pic" name="adhaar_image" value="{{$users->aadhar_image ?? ''}}">
                             </div>
                         </div>
                         <div class="col-md-4">
                             @if(isset($edituser))
-                            <img src="{{asset($edituser->image)}}" alt="" height="50px" width="50px">
+                            <img src="{{asset($users->last_qualification ??'')}}" alt="" height="50px" width="50px">
                             @endif
                             <div class="mb-3">
                                 <label for="formrow-pic-input" class="form-label">Last Qualification(document)</label>
                                 <input type="file" class="form-control" id="formrow-pic-input"
-                                    placeholder="Enter Your Pic" name="image" value="">
+                                    placeholder="Enter Your Pic" name="last_image" value="{{$users->last_qualification ?? ''}}">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="formrow-pic-input" class="form-label">bank_experience</label>
+                                <input type="text" class="form-control" id="formrow-pic-input"
+                                    placeholder="Enter Your Bank Experience" name="bank_experience" value="{{$users->bank_experience ?? ''}}">
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-floating mb-3">
                                 <label for="floatingTextarea">Address</label>
-                                <textarea class="form-control" name="address" placeholder="Enter your address here" id="floatingTextarea"></textarea>
+                                <textarea class="form-control" name="address" placeholder="Enter your address here" id="floatingTextarea">{{$users->address ?? ''}}</textarea>
                               </div>
                         </div>
+                        
                     </div>
 
                     <div>
-                        <button type="submit"
-                            class="btn btn-primary w-md">{{isset($edituser)? 'update':'submit'}}</button>
+                        <button type="submit" class="btn btn-primary w-md">{{isset($edituser)? 'update':'submit'}}</button>
                     </div>
 
                 </form>
@@ -118,7 +115,7 @@
 </div>
 <!-- end row -->
 
-<div class="row">
+{{--<div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-body">
@@ -184,8 +181,7 @@
             </div>
         </div>
     </div> <!-- end col -->
-</div> <!-- end row -->
-
+</div> --}}
 @endsection
 @section('script-area')
 

@@ -59,5 +59,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::post('/password-update/{id}', [UserController::class, 'passwordUpdate'])->name('passwordUpdate');
     Route::resource('/loan-type',LoantypeController::class);
     Route::get('loan-type-status/{id}',[LoantypeController::class,'status'])->name('status');
+    Route::get('managers-show',[UserController::class,'managers'])->name('userManagersShow');
 });
 

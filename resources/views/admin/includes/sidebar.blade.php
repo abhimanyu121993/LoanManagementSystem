@@ -32,10 +32,25 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{route('admin.userRegister')}}" key="t-register">Create</a></li>
-                        <li><a href="{{route('admin.userRegister')}}" key="t-register">Manage</a></li>
+                        <li><a href="{{route('admin.userManagersShow')}}" key="t-register">Manage</a></li>
                     </ul>
                 </li>
-
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="bx bx-user-plus"></i>
+                        <span key="t-users">Staff</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="" key="t-register">Create</a></li>
+                        <li><a href="" key="t-register">Manage</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="{{route('admin.loan-type.index')}}" class="waves-effect">
+                        <i class="bx bx-chat"></i>
+                        <span key="t-chat">Loan Type</span>
+                    </a>
+                </li>
             </ul>
         </div>
         <!-- Sidebar -->
