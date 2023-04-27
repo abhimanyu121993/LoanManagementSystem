@@ -6,6 +6,7 @@ use App\Http\Controllers\admin\LoantypeController;
 use App\Http\Controllers\admin\PermissionController;
 use App\Http\Controllers\admin\RoleController;
 use App\Http\Controllers\admin\user\UserController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\text;
 use Illuminate\Support\Facades\Route;
 
@@ -19,13 +20,12 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 Route::get('/', function () {
     return view('admin\includes\master');
 });
 Route::get('login', [AuthController::class, 'index'])->name('login');
 Route::post('login-store', [AuthController::class, 'login'])->name('loginStore');
-
+Route::group(['middleware' => ['auth']], function () {
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     //
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
@@ -60,5 +60,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::resource('/loan-type',LoantypeController::class);
     Route::get('loan-type-status/{id}',[LoantypeController::class,'status'])->name('status');
     Route::get('managers-show',[UserController::class,'managers'])->name('userManagersShow');
+    Route::resource('customer',CustomerController::class);
 });
 
+});

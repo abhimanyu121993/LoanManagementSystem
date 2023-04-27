@@ -98,7 +98,7 @@
                                 <textarea class="form-control" name="address" placeholder="Enter your address here" id="floatingTextarea">{{$users->address ?? ''}}</textarea>
                               </div>
                         </div>
-                        
+
                     </div>
 
                     <div>

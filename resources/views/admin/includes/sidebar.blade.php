@@ -38,11 +38,21 @@
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bx-user-plus"></i>
-                        <span key="t-users">Staff</span>
+                        <span key="t-staff">Staff</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="" key="t-register">Create</a></li>
-                        <li><a href="" key="t-register">Manage</a></li>
+                        <li><a href="#" key="t-create">Create</a></li>
+                        <li><a href="#" key="t-manage">Manage</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="bx bx-user-plus"></i>
+                        <span key="t-customer">Customer</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{route('admin.customer.create')}}" key="t-manage">Create</a></li>
+                        <li><a href="{{route('admin.customer.index')}}" key="t-create">Manage</a></li>
                     </ul>
                 </li>
                 <li>

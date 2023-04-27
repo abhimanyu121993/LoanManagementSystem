@@ -33,16 +33,12 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-
-
         $request->validate([
             'email' => 'required',
             'password' => 'required',
         ]);
-
         try {
             if (Auth::attempt($request->only('email', 'password'))) {
-                $password = $request->password;
                 return redirect(route('admin.dashboard'))->with('success', 'Login Successfully !');
             } else {
                 return redirect()->back()->with('error', 'Invalid Email/Password');

@@ -41,26 +41,27 @@ class UserController extends Controller
             'address' => 'required',
         ]);
         try {
-            if 
+            if
             ($request->hasFile('qualification_document')) {
                 $uimg = 'user-' . time() . '-' . rand(0, 99) . '.' . $request->qualification_document->extension();
                 $request->qualification_document->move(public_path('upload/user/'), $uimg);
                 $user_pic = 'upload/user/' . $uimg;
             }
-           
-            if 
+
+            if
             ($request->hasFile('adhaar_image')) {
                 $adhaar_img = 'adhaar-' . time() . '-' . rand(0, 99) . '.' . $request->adhaar_image->extension();
                 $request->adhaar_image->move(public_path('upload/adhaar/'), $adhaar_img);
                 $adhaar = 'upload/adhaar/' . $adhaar_img;
             }
 
-            if 
+            if
             ($request->hasFile('last_image')) {
                 $last_img = 'last-' . time() . '-' . rand(0, 99) . '.' . $request->last_image->extension();
                 $request->last_image->move(public_path('upload/last_quali/'), $last_img);
                 $last_image = 'upload/last_quali/' . $last_img;
             }
+
             $user = User::create([
                 'name' => $request->fname.' '.$request->lname,
                 'email' => $request->email,
@@ -68,8 +69,8 @@ class UserController extends Controller
                 'password' => Hash::make($request->password),
                 'created_id' => Auth::id(),
             ]);
-            
-             Manager::create([
+
+            $manager = Manager::create([
                 'father_name' => $request->father_name,
                 'user_id' => $user->id,
                 'Qualification_document' => $user_pic,
@@ -78,24 +79,24 @@ class UserController extends Controller
                 'address' => $request->address,
                 'bank_experience' => $request->bank_experience,
             ]);
-            
-            if (isset($user)) {
+
+            if (isset($manager)) {
                 $user->assignRole('manager');
-                return redirect()->back()->with('success', 'User registerd successfully !');
+                return redirect()->back()->with('toast_success', 'Manager registerd successfully !');
             } else {
-                return redirect()->back()->with('error', 'User not register successfully !');
+                return redirect()->back()->with('toast_error', 'Manager not register successfully !');
             }
         } catch (Exception $ex) {
 
             $url = URL::current();
             Error::create(['url' => $url, 'message' => $ex->getMessage()]);
-            return redirect()->back()->with('error', 'Server Error');
+            return redirect()->back()->with('toast_error', 'Server Error');
         }
     }
 
     public function userEdit($id)
     {
-        
+
         try {
             $edituser = Manager::find($id);
             $users = Manager::find($id);
@@ -142,7 +143,7 @@ class UserController extends Controller
                 $request->adhaar_image->move(public_path('upload/adhaar/'), $uimg);
                 $user_pic = 'upload/adhaar/' . $uimg;
                 Manager::find($id)->update(['aadhar_image' => $user_pic]);
-                
+
             }
             if ($request->hasFile('last_image')) {
                 $oldpic = Manager::find($id);
