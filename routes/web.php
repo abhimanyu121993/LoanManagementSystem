@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\HasPermissionController;
 use App\Http\Controllers\admin\LoantypeController;
 use App\Http\Controllers\admin\PermissionController;
 use App\Http\Controllers\admin\RoleController;
+use App\Http\Controllers\admin\StaffController;
 use App\Http\Controllers\admin\user\UserController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\text;
@@ -60,7 +61,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::resource('/loan-type',LoantypeController::class);
     Route::get('loan-type-status/{id}',[LoantypeController::class,'status'])->name('status');
     Route::get('managers-show',[UserController::class,'managers'])->name('userManagersShow');
+<<<<<<< Updated upstream
     Route::resource('customer',CustomerController::class);
+=======
+    Route::resource('staff',StaffController::class);
+>>>>>>> Stashed changes
 });
 
 });

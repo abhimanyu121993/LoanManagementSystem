@@ -41,6 +41,7 @@
                         <span key="t-staff">Staff</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
+<<<<<<< Updated upstream
                         <li><a href="#" key="t-create">Create</a></li>
                         <li><a href="#" key="t-manage">Manage</a></li>
                     </ul>
@@ -53,6 +54,10 @@
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{route('admin.customer.create')}}" key="t-manage">Create</a></li>
                         <li><a href="{{route('admin.customer.index')}}" key="t-create">Manage</a></li>
+=======
+                        <li><a href="{{route('admin.staff.index')}}" key="t-register">Create</a></li>
+                        <li><a href="{{route('admin.staff.create')}}" key="t-register">Manage</a></li>
+>>>>>>> Stashed changes
                     </ul>
                 </li>
                 <li>

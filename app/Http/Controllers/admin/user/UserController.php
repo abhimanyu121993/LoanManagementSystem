@@ -21,8 +21,7 @@ class UserController extends Controller
 {
     public function userRegister()
     {
-        $roles = Role::get();
-        return view('admin.user.user_register',compact('roles'));
+        return view('admin.user.user_register');
     }
 
     public function userStore(Request $request)
