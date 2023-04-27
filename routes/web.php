@@ -61,11 +61,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::resource('/loan-type',LoantypeController::class);
     Route::get('loan-type-status/{id}',[LoantypeController::class,'status'])->name('status');
     Route::get('managers-show',[UserController::class,'managers'])->name('userManagersShow');
-<<<<<<< Updated upstream
     Route::resource('customer',CustomerController::class);
-=======
     Route::resource('staff',StaffController::class);
->>>>>>> Stashed changes
 });
 
 });
