@@ -53,8 +53,6 @@
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{route('admin.customer.create')}}" key="t-manage">Create</a></li>
                         <li><a href="{{route('admin.customer.index')}}" key="t-create">Manage</a></li>
-                        <li><a href="{{route('admin.staff.index')}}" key="t-register">Create</a></li>
-                        <li><a href="{{route('admin.staff.create')}}" key="t-register">Manage</a></li>
                     </ul>
                 </li>
                 <li>
