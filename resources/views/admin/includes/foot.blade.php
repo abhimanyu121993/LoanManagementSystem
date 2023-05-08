@@ -119,3 +119,17 @@
         });
     });
   </script>
+  <!-- customer approval ajax -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+        $(document).on('change','.data',function(){
+            var id = $(this).data('id');
+            var status = $(this).val();
+            $('#id_of_remark').val(id);
+            $('#exampleModal').modal({backdrop: 'static',keyboard: false});
+            $('#exampleModal').modal('show');
+        });
+    });
+  </script>

@@ -90,7 +90,7 @@ class StaffController extends Controller
             ]);
             
             if (isset($user)) {
-                $user->assignRole('manager');
+                $user->assignRole('staff');
                 return redirect()->back()->with('toast_success', 'Staff registerd successfully !');
             } else {
                 return redirect()->back()->with('toast_error', 'Staff not register successfully !');

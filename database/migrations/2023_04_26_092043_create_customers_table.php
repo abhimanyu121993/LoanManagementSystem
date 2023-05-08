@@ -13,6 +13,23 @@ return new class extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('email');
+            $table->string('phone');
+            $table->string('buisness_name');
+            $table->string('aadhar_image');
+            $table->string('pancard_image');
+            $table->string('bank_statement');
+            $table->string('bank_passbook');
+            $table->string('customer_image');
+            $table->string('visit_pic');
+            $table->string('itr');
+            $table->string('gst');
+            $table->string('created_id');
+            $table->string('loan_type');
+            $table->text('address');
+            $table->boolean('approved')->default(0);
+            $table->string('remark')->nullable();
             $table->timestamps();
         });
     }

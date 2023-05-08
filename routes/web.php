@@ -63,6 +63,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::get('managers-show',[UserController::class,'managers'])->name('userManagersShow');
     Route::resource('customer',CustomerController::class);
     Route::resource('staff',StaffController::class);
+    Route::post('customer_approve',[CustomerController::class,'approval'])->name('approve');
 });
 
 });

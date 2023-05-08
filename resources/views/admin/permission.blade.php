@@ -55,7 +55,7 @@
                             <th>Sr.no.</th>
                             <th>Name</th>
                             <th>Created_at</th>
-                            <th>Action</th>
+                            <!-- <th>Action</th> -->
                         </tr>
                     </thead>
 
@@ -66,7 +66,7 @@
                             <td>{{$loop->index+1}}</td>
                             <td>{{$permissionsname->name}}</td>
                             <td>{{$permissionsname->created_at}}</td>
-                            <td>
+                            <!-- <td>
                                 <div class="dropdown">
                                     <a class=" dropdown-toggle " data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="color:black;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal">
@@ -90,7 +90,7 @@
 
                                     </ul>
                                 </div>
-                            </td>
+                            </td> -->
                         </tr>
                         @endforeach
                     </tbody>

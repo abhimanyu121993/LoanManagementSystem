@@ -23,7 +23,8 @@ class AuthController extends Controller
             ->where('date', $curr_date)
             ->first();
         // dd($attendance);
-        return view('admin.dashboard', compact('attendance'));
+        $get_data = Attendance::where('user_id',Auth::user()->id)->get();
+        return view('admin.dashboard', compact('attendance','get_data'));
     }
 
     public function index()

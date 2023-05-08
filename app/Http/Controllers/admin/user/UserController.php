@@ -66,7 +66,8 @@ class UserController extends Controller
                 'email' => $request->email,
                 'mobile' => $request->mobile,
                 'password' => Hash::make($request->password),
-                'created_id' => Auth::id(),
+                'created_id' =>Auth::id(),
+
             ]);
 
             $manager = Manager::create([

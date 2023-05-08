@@ -31,10 +31,10 @@
                                 <td data-field="name">{{$userdata->father_name}}</td>
                                 <td data-field="name">{{$userdata->bank_experience}}</td>
                                 <td data-field="name">{{$userdata->address}}</td>
-                                <td data-field="name"><img src="{{ asset($userdata->aadhar_image) }}"
-                                        style="height:50px;text-align:center;width:50px;border-radius:50%;" alt=""></td>
-                                <td data-field="name"><img src="{{ asset($userdata->last_qualification) }}"
-                                        style="height:50px;text-align:center;width:50px;border-radius:50%;" alt=""></td>
+                                <td data-field="name"><a href="" download="{{ asset($userdata->aadhar_image) }}"><img src="{{ asset($userdata->aadhar_image) }}"
+                                        style="height:50px;text-align:center;width:50px;border-radius:50%;" alt=""></a></td>
+                                <td data-field="name"><a href="" download="{{ asset($userdata->last_qualification) }}"><img src="{{ asset($userdata->last_qualification) }}"
+                                        style="height:50px;text-align:center;width:50px;border-radius:50%;" alt=""></a></td>
                                 <td style="width: 100px">
                                     <a href="{{ route('admin.userDelete',$userdata->id) }}"
                                         class="btn btn-outline-danger btn-sm edit" title="Edit">

@@ -29,10 +29,10 @@
                                 <td data-field="name">{{$userdata->managers->mobile}}</td>
                                 <td data-field="name">{{$userdata->father_name}}</td>
                                 <td data-field="name">{{$userdata->address}}</td>
-                                <td data-field="name"><img src="{{ asset($userdata->aadhar_image) }}"
-                                        class="rounded-circle"  width="50px" height="50px" alt=""></td>
-                                <td data-field="name"><img class="rounded-circle" src="{{ asset($userdata->last_qualification) }}"
-                                         alt="" width="50px" height="50px"></td>
+                                <td data-field="name"><a href="" download="{{ asset($userdata->aadhar_image) }}"><img src="{{ asset($userdata->aadhar_image) }}"
+                                        class="rounded-circle"  width="50px" height="50px" alt=""></a></td>
+                                <td data-field="name"><a href="" download="{{ asset($userdata->last_qualification) }}"><img class="rounded-circle" src="{{ asset($userdata->last_qualification) }}"
+                                         alt="" width="50px" height="50px"></a></td>
                                 <td>
                                 <div class="row">
                                     <div class="col-md-6">
